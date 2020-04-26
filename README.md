@@ -1,7 +1,6 @@
 # SAGo - Simplex Algorithm Go
-[![CircleCi](https://circleci.com/gh/wenbenz/SAGo.svg?style=shield)](https://circleci.com/gh/wenbenz/SAGo)
-[![Go Report Card](https://goreportcard.com/badge/github.com/wenbenz/SAGo)](https://goreportcard.com/report/github.com/wenbenz/SAGo)
-
+![Build](https://github.com/wenbenz/sago/workflows/Build/badge.svg)
+[![Go Report Card](https://goreportcard.com/badge/github.com/wenbenz/sago)](https://goreportcard.com/report/github.com/wenbenz/sago)
 Simple implementation of the 2-phase Simplex Algorithm in Go.
 
 ## Add to your project
