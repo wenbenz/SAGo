@@ -5,7 +5,7 @@
 Simple implementation of the 2-phase Simplex Algorithm in Go.
 
 ## Add to your project
-```go get github.com/wenbenz/SAGo```
+```go get github.com/wenbenz/sago```
 
 ## Usage
 See use example in `SimplexTest.go > ExampleLP_Optimize`
