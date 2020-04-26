@@ -1,0 +1,14 @@
+A row in the matrix defined as
+b = c1x1 + c2x2 + ... + cnxn
+is represented as (b, c1, c2, ..., cn)
+
+E.g.
+the LP:
+    max c1x1 + c2x2 = z st.
+    x1 < 5
+    x2 < 7
+would be written as
+z,c1,c2,0,0
+5,d1,d2,1,0
+7,e1,e2,0,1
+where the last 2 columns are coefficients of slack variables
