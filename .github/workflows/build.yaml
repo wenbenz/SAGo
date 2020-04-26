@@ -16,8 +16,6 @@ jobs:
       - run: go get -v -t -d
       - run: go build
       - run: go test -v -covermode=count -coverprofile=coverage.out ./...
-      - run: |
-          GO111MODULE=off go get github.com/mattn/goveralls
-          $(go env GOPATH)/bin/goveralls -coverprofile=coverage.out -service=github
+      - run: GO111MODULE=off go get github.com/mattn/goveralls && $(go env GOPATH)/bin/goveralls -coverprofile=coverage.out -service=github
         with:
           COVERALLS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
