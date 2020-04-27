@@ -16,6 +16,6 @@ jobs:
       - run: go build
       - run: go test -v -covermode=count -coverprofile=coverage.out ./...
       - name: Send coverage
-        run: go get github.com/mattn/goveralls &&\
+        run: go install github.com/mattn/goveralls &&\
           $(go env GOPATH | awk 'BEGIN{FS=":"} {print $1}')/bin/goveralls \
           -coverprofile=coverage.out -service=travis-ci -repotoken ${{ secrets.GITHUB_TOKEN }}
