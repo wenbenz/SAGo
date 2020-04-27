@@ -17,6 +17,5 @@ jobs:
       - run: go install github.com/mattn/goveralls
       - run: go build
       - run: go test -v -covermode=count -coverprofile=coverage.out ./...
+      - run: cd $(go env GOPATH | awk 'BEGIN{FS=":"} {print $1}')/src/github.com/wenbenz/sago
       - run: $(go env GOPATH | awk 'BEGIN{FS=":"} {print $1}')/bin/goveralls -coverprofile=coverage.out -service=travis-ci -repotoken ${{ secrets.GITHUB_TOKEN }}
-        with:
-          working-directory: src/github.com/wenbenz/sago
