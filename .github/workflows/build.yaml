@@ -20,4 +20,6 @@ jobs:
           COVERALLS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           GO111MODULE=off go get github.com/mattn/goveralls
-          $(go env GOPATH)/bin/goveralls -coverprofile=coverage.out -service=travis-ci
+          $(go env GOPATH)/bin/goveralls -coverprofile=coverage.out -service=github
+        working-directory:
+          working-directory: src/github.com/wenbenz/sago
