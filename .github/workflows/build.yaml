@@ -18,6 +18,7 @@ jobs:
 #      - run: go build
       - run: go test -v -covermode=count -coverprofile=coverage.out ./...
 #      - run: cd $(go env GOPATH | awk 'BEGIN{FS=":"} {print $1}')/src/github.com/wenbenz/sago
-      - run: $(go env GOPATH | awk 'BEGIN{FS=":"} {print $1}')/bin/goveralls -coverprofile=coverage.out -service=travis-ci -repotoken ${{ secrets.GITHUB_TOKEN }}
+      - name: Send coverage
+        run: $(go env GOPATH | awk 'BEGIN{FS=":"} {print $1}')/bin/goveralls -coverprofile=coverage.out -service=travis-ci -repotoken ${{ secrets.GITHUB_TOKEN }}
         with:
           working-directory: '/home/runner/work/sago/sago'
