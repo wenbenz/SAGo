@@ -20,7 +20,10 @@ jobs:
       # Coverage
       - run: mkdir -p $(go env GOPATH | awk 'BEGIN{FS=":"} {print $1}')/src/github.com/wenbenz/sago
       - run: cp -r ./ $(go env GOPATH | awk 'BEGIN{FS=":"} {print $1}')/src/github.com/wenbenz/sago
-      - run: |
+      - name: Coveralls test
+        env:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+        run: |
           cd $(go env GOPATH | awk 'BEGIN{FS=":"} {print $1}')/src/github.com/wenbenz/sago && \
           go test -v -covermode=count -coverprofile=coverage.out ./... && \
           $(go env GOPATH | awk 'BEGIN{FS=":"} {print $1}')/bin/goveralls -coverprofile=coverage.out -service=travis-ci -repotoken ${{ secrets.GITHUB_TOKEN }}
