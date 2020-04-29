@@ -14,11 +14,13 @@ jobs:
       - uses: actions/checkout@master
       - run: go get -v -t -d
       - run: go get github.com/mattn/goveralls
-#      - run: go install github.com/mattn/goveralls
-#      - run: go build
-      - run: go test -v -covermode=count -coverprofile=coverage.out ./...
-#      - run: cd $(go env GOPATH | awk 'BEGIN{FS=":"} {print $1}')/src/github.com/wenbenz/sago
-      - name: Send coverage
-        env:
-          working-directory: '/home/runner/work/sago/sago'
-        run: $(go env GOPATH | awk 'BEGIN{FS=":"} {print $1}')/bin/goveralls -coverprofile=coverage.out -service=travis-ci -repotoken ${{ secrets.GITHUB_TOKEN }}
+      - run: go install github.com/mattn/goveralls
+      - run: go build
+
+      # Coverage
+      - run: mkdir -p $(go env GOPATH | awk 'BEGIN{FS=":"} {print $1}')/src/github.com/wenbenz/sago
+      - run: cp -r ./ $(go env GOPATH | awk 'BEGIN{FS=":"} {print $1}')/src/github.com/wenbenz/sago
+      - run: |
+          cd $(go env GOPATH | awk 'BEGIN{FS=":"} {print $1}')/src/github.com/wenbenz/sago && \
+          go test -v -covermode=count -coverprofile=coverage.out ./... && \
+          $(go env GOPATH | awk 'BEGIN{FS=":"} {print $1}')/bin/goveralls -coverprofile=coverage.out -service=travis-ci -repotoken ${{ secrets.GITHUB_TOKEN }}
