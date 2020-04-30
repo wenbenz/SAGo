@@ -15,10 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: gofmt
-        run: gofmt -w ./...
+        run: gofmt -w -s .
       - name: commit
         run: |
-          git add .
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -a -m "GitHub Action: gofmt"
