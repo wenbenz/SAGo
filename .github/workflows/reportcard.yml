@@ -16,11 +16,11 @@ jobs:
       - name: gofmt
         run: gofmt -w ./...
       - name: commit
-          run: |
-            git add .
-            git config --local user.email "action@github.com"
-            git config --local user.name "GitHub Action"
-            git commit -a -m "GitHub Action: gofmt"
+        run: |
+          git add .
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -a -m "GitHub Action: gofmt"
       - name: push
         uses: ad-m/github-push-action@master
         with:
