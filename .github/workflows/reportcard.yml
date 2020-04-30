@@ -23,9 +23,13 @@ jobs:
           git config --local user.name "GitHub Action"
           git commit -a -m "GitHub Action: gofmt"
       - name: push
+        env:
+          branch: $(git rev-parse --abbrev-ref HEAD)
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: {{ env.branch }}
+
 
   reportcard:
     name: Report Card
