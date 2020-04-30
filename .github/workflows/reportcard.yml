@@ -11,6 +11,7 @@ on: [ "push", "pull_request" ]
 jobs:
   format:
     name: Format
+    continue-on-error: true # if already formatted, gofmt will fail
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
