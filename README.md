@@ -1,8 +1,7 @@
 # SAGo - Simplex Algorithm Go
 ![Build](https://github.com/wenbenz/sago/workflows/Build/badge.svg)
 [![Go Report Card](https://goreportcard.com/badge/github.com/wenbenz/sago)](https://goreportcard.com/report/github.com/wenbenz/sago)
-[![Coverage Status](https://coveralls.io/repos/github/wenbenz/sago/badge.svg)](https://coveralls.io/github/wenbenz/sago)
-
+[![Coverage Status](https://coveralls.io/repos/github/wenbenz/sago/badge.svg?branch=master)](https://coveralls.io/github/wenbenz/sago?branch=master)
 Simple implementation of the 2-phase Simplex Algorithm in Go.
 
 ## Add to your project
