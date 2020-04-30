@@ -26,4 +26,4 @@ jobs:
         run: |
           cd $(go env GOPATH | awk 'BEGIN{FS=":"} {print $1}')/src/github.com/wenbenz/sago && \
           go test -v -covermode=count -coverprofile=coverage.out ./... && \
-          $(go env GOPATH | awk 'BEGIN{FS=":"} {print $1}')/bin/goveralls -coverprofile=coverage.out -service=travis-ci -repotoken ${{ secrets.GITHUB_TOKEN }}
+          $(go env GOPATH | awk 'BEGIN{FS=":"} {print $1}')/bin/goveralls -coverprofile=coverage.out -service=github -repotoken ${{ secrets.GITHUB_TOKEN }}
