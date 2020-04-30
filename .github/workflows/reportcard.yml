@@ -7,8 +7,28 @@ on:
     branches: [ master ]
 
 jobs:
+  format:
+    on: [ "push", "pull_request" ]
+    name: Format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: gofmt
+        - run: gofmt -w ./...
+      - name: commit
+          run: |
+            git add .
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git commit -a -m "GitHub Action: gofmt"
+      - name: push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
   reportcard:
     name: Report Card
+    needs: Format
     runs-on: ubuntu-latest
     steps:
     - name: Go report card
