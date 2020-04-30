@@ -13,13 +13,12 @@ jobs:
           go-version: '1.14'
       - uses: actions/checkout@master
       - run: go get -v -t -d
-      - run: go get github.com/mattn/goveralls
-      - run: go install github.com/mattn/goveralls
       - run: go build
 
       # Coverage
       - run: mkdir -p $(go env GOPATH | awk 'BEGIN{FS=":"} {print $1}')/src/github.com/wenbenz/sago
       - run: cp -r ./ $(go env GOPATH | awk 'BEGIN{FS=":"} {print $1}')/src/github.com/wenbenz/sago
+      - run: go get github.com/mattn/goveralls && go install github.com/mattn/goveralls
       - name: Coveralls test
         env:
           github-token: ${{ secrets.GITHUB_TOKEN }}
