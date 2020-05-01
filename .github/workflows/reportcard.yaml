@@ -9,7 +9,6 @@ on:
 jobs:
   reportcard:
     name: Report Card
-    needs: Format
     runs-on: ubuntu-latest
     steps:
     - name: Go report card
