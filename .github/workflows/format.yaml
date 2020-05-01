@@ -1,6 +1,8 @@
 name: gofmt
 
-on: ["push"]
+on:
+  push:
+    branches: [ master ]
 
 jobs:
   format:
