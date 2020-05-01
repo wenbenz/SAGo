@@ -1,10 +1,6 @@
-name: Go Report Card
+name: gofmt
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: ["push"]
 
 jobs:
   format:
@@ -26,12 +22,3 @@ jobs:
         run: |
           git remote set-url origin https://${{ env.USER }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ env.USER }}/${{ env.REPO }}.git
           git push --set-upstream origin $(git branch --show-current)
-
-
-  reportcard:
-    name: Report Card
-    needs: Format
-    runs-on: ubuntu-latest
-    steps:
-    - name: Go report card
-      uses: creekorful/goreportcard-action@v1.0
