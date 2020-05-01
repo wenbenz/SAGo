@@ -46,5 +46,5 @@
 **1.1.1**
 - Renamed AddConstraint to AddConstraintEq to allow for other constraint types when support for non-SEF LPs is added.
 
-**1.0.1**
+**0.1.0**
 - Project made
