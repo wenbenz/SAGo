@@ -12,7 +12,6 @@ jobs:
     env:
       USER: wenbenz
       REPO: sago
-    continue-on-error: true # if already formatted, gofmt will fail
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -22,8 +21,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git commit -a -m "GitHub Action: gofmt"
-          echo $(git branch --show-current)
+          git commit -a -m "GitHub Action: gofmt" | exit 0
       - name: push
         run: |
           git remote set-url origin https://${{ env.USER }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ env.USER }}/${{ env.REPO }}.git
