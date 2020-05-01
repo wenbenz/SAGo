@@ -159,7 +159,7 @@ func (lp *LP) ClearConstraints() {
 }
 
 //DualLP returns a pointer to the dual of the LP
-func (lp *LP) DualLP()*LP {
+func (lp *LP) DualLP() *LP {
 	dlp := NewLP()
 	dlp.tableau = Transpose(lp.tableau)
 	return dlp
