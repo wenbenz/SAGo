@@ -1,0 +1,24 @@
+name: gofmt
+
+on: ["push"]
+
+jobs:
+  format:
+    name: Format
+    env:
+      USER: wenbenz
+      REPO: sago
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: gofmt
+        run: gofmt -w -s .
+      - name: commit
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -a -m "GitHub Action: gofmt" || true
+      - name: push
+        run: |
+          git remote set-url origin https://${{ env.USER }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ env.USER }}/${{ env.REPO }}.git
+          git push --set-upstream origin $(git branch --show-current)
