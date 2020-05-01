@@ -4,11 +4,10 @@ import "fmt"
 
 //InvalidInputError input is invalid
 type InvalidInputError struct {
-	s string
+	s           string
 }
 
-func (e InvalidInputError) Error() string {
-	return fmt.Sprintf("%s: %s", "Invalid input", e.s)
+func(e InvalidInputError)Error()string{return fmt.Sprintf("%s: %s", "Invalid input", e.s)
 }
 
 //NoSolutionError there is no solution to this LP
