@@ -11,6 +11,9 @@ on: [ "push", "pull_request" ]
 jobs:
   format:
     name: Format
+    env:
+      USER: wenbenz
+      REPO: sago
     continue-on-error: true # if already formatted, gofmt will fail
     runs-on: ubuntu-latest
     steps:
@@ -25,7 +28,7 @@ jobs:
           echo $(git branch --show-current)
       - name: push
         run: |
-          git remote set-url origin https://wenbenz:${{ secrets.GITHUB_TOKEN }}@github.com/wenbenz/sago.git
+          git remote set-url origin https://${{ env.USER }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ env.USER }}/${{ env.REPO }}.git
           git push --set-upstream origin $(git branch --show-current)
 
 
