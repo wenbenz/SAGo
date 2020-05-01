@@ -25,7 +25,7 @@ jobs:
           echo $(git branch --show-current)
       - name: push
         run: |
-          git remote set-url origin https://wenbenz:${{ secrets.GITHUB_TOKEN }}@github.com/${{ env.GITHUB_REPOSITORY }}.git
+          git remote set-url origin https://wenbenz:${{ secrets.GITHUB_TOKEN }}@github.com/wenbenz/sago.git
           git push --set-upstream origin $(git branch --show-current)
 
 
