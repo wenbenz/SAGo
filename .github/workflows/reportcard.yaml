@@ -3,8 +3,6 @@ name: Go Report Card
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   reportcard:
