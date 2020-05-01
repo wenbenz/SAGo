@@ -20,9 +20,7 @@ jobs:
       - run: cp -r ./ $(go env GOPATH | awk 'BEGIN{FS=":"} {print $1}')/src/github.com/wenbenz/sago
       - run: go get github.com/mattn/goveralls && go install github.com/mattn/goveralls
       - name: Coveralls test
-        env:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cd $(go env GOPATH | awk 'BEGIN{FS=":"} {print $1}')/src/github.com/wenbenz/sago && \
-          go test -v -covermode=count -coverprofile=coverage.out ./... && \
+          cd $(go env GOPATH | awk 'BEGIN{FS=":"} {print $1}')/src/github.com/wenbenz/sago
+          go test -v -covermode=count -coverprofile=coverage.out ./...
           $(go env GOPATH | awk 'BEGIN{FS=":"} {print $1}')/bin/goveralls -coverprofile=coverage.out -service=github -repotoken ${{ secrets.GITHUB_TOKEN }}
