@@ -21,7 +21,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git commit -a -m "GitHub Action: gofmt" | exit 0
+          git commit -a -m "GitHub Action: gofmt" || true
       - name: push
         run: |
           git remote set-url origin https://${{ env.USER }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ env.USER }}/${{ env.REPO }}.git
