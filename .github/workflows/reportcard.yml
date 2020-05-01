@@ -24,10 +24,9 @@ jobs:
           git commit -a -m "GitHub Action: gofmt"
           echo $(git branch --show-current)
       - name: push
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: $(git branch --show-current)
+        run: |
+          git remote set-url origin https://wenbenz:${{ secrets.GITHUB_TOKEN }}@github.com/${{ env.GITHUB_REPOSITORY }}.git
+          git push --set-upstream origin $(git branch --show-current)
 
 
   reportcard:
