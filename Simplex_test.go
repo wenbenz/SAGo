@@ -215,7 +215,7 @@ func TestLP_Optimize7(t *testing.T) {
 	lp := readLP("LP_degenerate_iteration")
 	lp.Optimize()
 	sol, _ := lp.Solution()
-	assert.Equal(t, []float64{0, 0, 7095.5198887422475, 0, 10000, 0}, sol)
+	assert.Equal(t, []float64{0, 0, 0, 2}, sol)
 }
 
 /*
