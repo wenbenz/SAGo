@@ -210,6 +210,14 @@ func TestLP_Optimize6(t *testing.T) {
 	assert.Equal(t, []float64{0, 0, 7095.5198887422475, 0, 10000, 0}, sol)
 }
 
+// Test degen iteration
+func TestLP_Optimize7(t *testing.T) {
+	lp := readLP("LP_degenerate_iteration")
+	lp.Optimize()
+	sol, _ := lp.Solution()
+	assert.Equal(t, []float64{0, 0, 7095.5198887422475, 0, 10000, 0}, sol)
+}
+
 /*
 Example of how to optimize using simplex to solve:
 Max 	    3 x_1 + 5 x_2
