@@ -1,5 +1,8 @@
 # Changelog
 
+**3.0.1**
+- Removed poorly defined DualLP function
+
 **2.3.1**
 - Added documentation on exported functions
 - Unexported several functions that shouldn't have been necessary for package use
