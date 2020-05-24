@@ -158,13 +158,6 @@ func (lp *LP) ClearConstraints() {
 	lp.tableau = (lp.tableau)[0:1]
 }
 
-//DualLP returns a pointer to the dual of the LP
-func (lp *LP) DualLP() *LP {
-	dlp := NewLP()
-	dlp.tableau = Transpose(lp.tableau)
-	return dlp
-}
-
 //Solved returns true if the simplex algorithm has been run on the LP
 func (lp *LP) Solved() bool {
 	return lp.solved

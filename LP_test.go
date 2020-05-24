@@ -114,23 +114,6 @@ func TestLP_AuxLP(t *testing.T) {
 	assert.Equal(t, expected, actual)
 }
 
-func TestLP_DualLP(t *testing.T) {
-	lp := readLP("LP_feas_min")
-	dlp := readLP("LP_feas_min_dual")
-	dlpMatrix := tableau{
-		{0, 11, 5, 0, 35},
-		{4, 1, 1, -1, 12},
-		{5, 1, -1, -1, 0},
-		{6, 0, 0, 1, 0},
-		{0, 1, 0, 0, 0},
-		{0, 0, 1, 0, 1},
-		{0, 0, 0, 0, 0},
-	}
-	actual := lp.DualLP()
-	assert.Equal(t, dlpMatrix, actual.tableau)
-	assert.Equal(t, dlp, actual)
-}
-
 func TestLP_Solution(t *testing.T) {
 	lp := readLP("LP_solved")
 	lp.solved = true
